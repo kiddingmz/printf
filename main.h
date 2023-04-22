@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 
+int _printf(const char *format, ...);
 char print_char(va_list);
 int print_int(va_list);
 float print_float(va_list);
