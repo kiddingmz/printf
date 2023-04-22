@@ -13,18 +13,19 @@
 
 int _printf(const char *format, ...)
 {
-	int i, len_all_string, len_per;
+	int i, aux;
 
-	i = len_all_string = len_per = 0;
+	i = aux=0;
 	while (format[i] != '\0')
 	{
-		len_all_string++;
-		if (format[i] == '%')
-			len_per++;
+		if (format[i]== '%'){
+			aux = i+1;
+			while(format[aux] !=' ')
+				printf("%d",aux);
+		}
 		i++;
 	}
-	
-	printf("\nQuantidade de %% na string: %d\n", len_per++);
-	return (len_all_string);
+	return(aux);
 }
-		
+
+
