@@ -1,11 +1,11 @@
+#include <stdarg.h>
+#include <unistd.h>
 #include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
 
 /**
  * _printf - print all
  *
- * @format: first param
+ * @ormat: first param
  * @...: more params
  *
  * Return: lenght of string
@@ -13,19 +13,22 @@
 
 int _printf(const char *format, ...)
 {
-	int i, aux;
+	unsigned int i, len_str;
+	va_list op;
 
-	i = aux=0;
-	while (format[i] != '\0')
+	len_str = _strlen(format);
+	va_start(op, format);
+
+	for (i = 0; i < len_str; i++)
 	{
-		if (format[i]== '%'){
-			aux = i+1;
-			while(format[aux] !=' ')
-				printf("%d",aux);
+		if (format[i] == 'i' || format[i] == 'd')
+		{
+			int id = va_arg(op, int);
+			write(1, &id, sizeof(id));
 		}
-		i++;
 	}
-	return(aux);
+	
+	putchar('\n');
+	va_end(op);
+	return (0);
 }
-
-

@@ -1,5 +1,5 @@
+#include <stdarg.h>
 #include "main.h"
-#include <stdio.h>
 
 /**
  * main - test printf function
@@ -10,17 +10,8 @@
  * Return: 0
  */
 
-int main(int argc, char *arg[])
+int main(void)
 {
-	int q;
-	
-	if (argc != 2)
-	{
-		printf("\nQuantidade de paramtetros errados\n");
-		return (1);
-	}
-
-	q = _printf(arg[argc - argc + 1]);
-	printf("Quantidade de caracteres: %d\n", q);
+	_printf("id", 1975, 2004);
 	return (0);
 }

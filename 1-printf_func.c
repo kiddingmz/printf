@@ -9,7 +9,7 @@
  * Return: char
  */
 
-char print_char(va_list op)
+char _char(va_list op)
 {
 	char c = (char)va_arg(op, int);
 
@@ -24,7 +24,7 @@ char print_char(va_list op)
  * Return: int
  */
 
-int print_int(va_list op)
+int _int(va_list op)
 {
 	int i = va_arg(op, int);
 
@@ -39,7 +39,7 @@ int print_int(va_list op)
  * Return: float
  */
 
-float print_float(va_list op)
+float _float(va_list op)
 {
 	float f = va_arg(op, double);
 
@@ -54,7 +54,7 @@ float print_float(va_list op)
  * Return: pointer char
  */
 
-char *print_string(va_list op)
+char *_string(va_list op)
 {
 	char *c = va_arg(op, char*);
 
