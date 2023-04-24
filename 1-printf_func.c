@@ -24,11 +24,13 @@ char _char(va_list op)
  * Return: int
  */
 
-int _int(va_list op)
+char * _int(va_list op)
 {
 	int i = va_arg(op, int);
+	char s[100];
 
-	return (i);
+	char *res = _itoa(s, i);
+	return (res);
 }
 
 /**

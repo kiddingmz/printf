@@ -12,6 +12,6 @@
 
 int main(void)
 {
-	_printf("id", 1975, 2004);
+	_printf("idisc", 1975, 2004, -4054744, "Isidro", 'C');
 	return (0);
 }

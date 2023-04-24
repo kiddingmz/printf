@@ -23,8 +23,18 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == 'i' || format[i] == 'd')
 		{
-			int id = va_arg(op, int);
-			write(1, &id, sizeof(id));
+			char *n =  _int(op);
+			write(1, n, _strlen(n));
+		}
+		else if (format[i] == 'c')
+		{
+			char n = va_arg(op, int);
+			write(1, &n, 1);
+		}
+		else if (format[i] == 's')
+		{
+			char *n = _string(op);
+			write(1, n, _strlen(n)); 
 		}
 	}
 	
