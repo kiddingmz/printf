@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include "main.h"
+#include <string.h>
 
 /**
  * _printf - print all
@@ -13,8 +14,12 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int i, len_str;
+	unsigned int i, len_str, total_len;
 	va_list op;
+	char *buffer= NULL;
+	
+	buffer = malloc(sizeof(char)*4096);
+	total_len = 0;
 
 	len_str = _strlen(format);
 	va_start(op, format);
@@ -24,21 +29,30 @@ int _printf(const char *format, ...)
 		if (format[i] == 'i' || format[i] == 'd')
 		{
 			char *n =  _int(op);
-			write(1, n, _strlen(n));
+			/*_strcpy(buffer, n);*/
+			strncpy(buffer, n, _strlen(n));
+			buffer++;
 		}
 		else if (format[i] == 'c')
 		{
 			char n = va_arg(op, int);
-			write(1, &n, 1);
+			buffer[i++] = n;
 		}
 		else if (format[i] == 's')
 		{
 			char *n = _string(op);
-			write(1, n, _strlen(n)); 
+			_strcpy(buffer, n);
+			buffer++;
 		}
 	}
+
+	total_len = _strlen(buffer);
+
+	write(1, buffer, total_len);
 	
+	free(buffer);
 	putchar('\n');
 	va_end(op);
-	return (0);
+	
+	return (total_len);
 }
