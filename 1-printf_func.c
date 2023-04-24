@@ -24,7 +24,7 @@ char _char(va_list op)
  * Return: int
  */
 
-char * _int(va_list op)
+char *_int(va_list op)
 {
 	int i = va_arg(op, int);
 	char s[100];

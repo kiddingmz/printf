@@ -13,4 +13,5 @@ float _float(va_list);
 char *_string(va_list);
 char *_itoa_(char *, int);
 char *_itoa(char *, int);
+char *_strncpy(char *, const char *, size_t);
 #endif
