@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == 'c')
 			{
-				n = _char(op);
+				n = (char)va_arg(op, int);
 				_charcpy(buffer, n);
 				status = 0;
 			}
