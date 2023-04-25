@@ -23,13 +23,7 @@ int _printf(const char *format, ...)
 		status = 1;
 		if (*(format + i) == '%')
 		{
-			if (format[i + 1] == 'i' || format[i + 1] == 'd')
-			{
-				str =  _int(op);
-				_strcpy(buffer, str);
-				status = 0;
-			}
-			else if (format[i + 1] == 'c')
+			if (format[i + 1] == 'c')
 			{
 				n = (char)va_arg(op, int);
 				_charcpy(buffer, n);
