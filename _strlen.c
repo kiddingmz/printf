@@ -1,5 +1,13 @@
 #include "main.h"
 
+/**
+ * _strlen - lenght of string
+ *
+ * @str: string
+ *
+ * Return: unsigned int
+ */
+
 int _strlen(const char *str)
 {
 	unsigned int i;

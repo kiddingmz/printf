@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * print_char - print char
+ * _char - print char
  *
  * @op: pointer
  *
@@ -17,7 +17,7 @@ char _char(va_list op)
 }
 
 /**
- * print_int - print int
+ * _int - print int
  *
  * @op: pointer
  *
@@ -28,13 +28,13 @@ char *_int(va_list op)
 {
 	int i = va_arg(op, int);
 	char s[100];
-
 	char *res = _itoa(s, i);
+
 	return (res);
 }
 
 /**
- * print_float - print float
+ * _float - print float
  *
  * @op: pointer
  *
@@ -49,7 +49,7 @@ float _float(va_list op)
 }
 
 /**
- * print_string - print string
+ * _string - print string
  *
  * @op: pointer
  *

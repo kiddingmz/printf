@@ -1,6 +1,15 @@
 #include "main.h"
 #include <stdio.h>
 
+/**
+ * _charcpy - copy character
+ *
+ * @dest: pointer destine
+ * @src: source
+ *
+ * Return: string
+ */
+
 char *_charcpy(char *dest, const char src)
 {
 	size_t d;
