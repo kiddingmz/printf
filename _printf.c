@@ -14,37 +14,46 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int i, len_str, total_len;
+	unsigned int i, len_str, total_len, status;
 	va_list op;
-	char *buffer= NULL;
+	char *buffer = malloc(sizeof(char) * 4096);
 	
-	buffer = malloc(sizeof(char)*4096);
 	total_len = 0;
-
 	len_str = _strlen(format);
 	va_start(op, format);
+	status = 1;
 
 	for (i = 0; i < len_str; i++)
 	{
-		if (format[i] == 'i' || format[i] == 'd')
+		status = 1;
+		if (*(format + i) == '%')
 		{
-			char *n =  _int(op);
-			/*_strcpy(buffer, n);*/
-			strncpy(buffer, n, _strlen(n));
-			buffer++;
+			if (format[i + 1] == 'i' || format[i + 1] == 'd')
+			{
+				char *n =  _int(op);
+				_strcpy(buffer, n);
+				status = 0;
+			}
+			else if (format[i + 1] == 'c')
+			{
+				char n = (char)va_arg(op, int);
+				_charcpy(buffer, n);
+				status = 0;
+			}
+			else if (format[i + 1] == 's')
+			{
+				char *n = _string(op);
+				_strcpy(buffer, n);
+				status = 0;
+			}
+
+			if (status == 0)
+				i++;
 		}
-		else if (format[i] == 'c')
-		{
-			char n = va_arg(op, int);
-			buffer[i++] = n;
-		}
-		else if (format[i] == 's')
-		{
-			char *n = _string(op);
-			_strcpy(buffer, n);
-			buffer++;
-		}
-	}
+
+		if (status == 1)
+			_charcpy(buffer, format[i]);
+	}	
 
 	total_len = _strlen(buffer);
 

@@ -12,6 +12,6 @@
 
 int main(void)
 {
-	_printf("idisc", 1975, 2004, -4054744, "Isidro", 'C');
+	_printf("Ano novo: %d\nnome: %s\nestado: %c", 2023, "Isidro Bata", 's');
 	return (0);
 }
