@@ -56,11 +56,8 @@ int _printf(const char *format, ...)
 	}	
 
 	total_len = _strlen(buffer);
-
-	write(1, buffer, total_len);
-	
+	write(1, buffer, total_len);	
 	free(buffer);
-	putchar('\n');
 	va_end(op);
 	
 	return (total_len);
