@@ -16,4 +16,5 @@ char *_itoa(char *, int);
 char *_strcpy(char *, const char *);
 char *_charcpy(char *, const char);
 void _memset(char *, int, size_t);
+void _putchar(char );
 #endif
