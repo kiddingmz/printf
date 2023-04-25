@@ -1,6 +1,5 @@
 #include <unistd.h>
 #include "main.h"
-#include <string.h>
 
 /**
  * _printf - print all
@@ -13,9 +12,9 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int i, len_str, total_len = 0, status = 1;
+	unsigned int i, len_str, status = 1;
 	va_list op;
-	char *buffer = malloc(sizeof(char) * 4096);
+	char *str = NULL, n, *buffer = malloc(sizeof(char) * 4096);
 
 	len_str = _strlen(format);
 	va_start(op, format);
@@ -27,38 +26,30 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == 'i' || format[i + 1] == 'd')
 			{
-				char *n =  _int(op);
-
-				_strcpy(buffer, n);
+				str =  _int(op);
+				_strcpy(buffer, str);
 				status = 0;
 			}
 			else if (format[i + 1] == 'c')
 			{
-				char n = (char)va_arg(op, int);
-
+				n = (char)va_arg(op, int);
 				_charcpy(buffer, n);
 				status = 0;
 			}
 			else if (format[i + 1] == 's')
 			{
-				char *n = _string(op);
-
-				_strcpy(buffer, n);
+				str = _string(op);
+				_strcpy(buffer, str);
 				status = 0;
 			}
-
 			if (status == 0)
 				i++;
 		}
-
-		if (status == 1)
+		else
 			_charcpy(buffer, format[i]);
 	}
-	total_len = _strlen(buffer);
-	write(1, buffer, total_len);
+	write(1, buffer, _strlen(buffer));
 	free(buffer);
-	buffer = NULL;
 	va_end(op);
-
-	return (total_len);
+	return (_strlen(buffer));
 }
