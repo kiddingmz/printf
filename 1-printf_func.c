@@ -26,7 +26,7 @@ char _char(va_list op)
 char *_int(va_list op)
 {
 	int i = va_arg(op, int);
-	char s[100];
+	char *s = malloc(sizeof(int));
 	char *res = _itoa(s, i);
 
 	return (res);
