@@ -1,5 +1,6 @@
 #include <unistd.h>
 #include "main.h"
+#include <string.h>
 
 /**
  * _printf - print all
@@ -12,15 +13,13 @@
 
 int _printf(const char *format, ...)
 {
-	unsigned int i, len_str, total_len, status;
+	unsigned int i, len_str, total_len = 0, status = 1;
 	va_list op;
 	char *buffer = malloc(sizeof(char) * 4096);
 
-	total_len = 0;
 	len_str = _strlen(format);
 	va_start(op, format);
-	status = 1;
-
+	_memset(buffer, '\0', 4096);
 	for (i = 0; i < len_str; i++)
 	{
 		status = 1;
@@ -58,6 +57,7 @@ int _printf(const char *format, ...)
 	total_len = _strlen(buffer);
 	write(1, buffer, total_len);
 	free(buffer);
+	buffer = NULL;
 	va_end(op);
 
 	return (total_len);
