@@ -9,11 +9,11 @@
  * Return: string
  */
 
-char *_itoa_(char *dest, int i)
+char *_itoa_(char *dest, int i, int base)
 {
-	if (i <= -10)
-		dest = _itoa_(dest, i / 10);
-	*dest++ = '0' - i % 10;
+	if (i <= -base)
+		dest = _itoa_(dest, i / base, base);
+	*dest++ = '0' - i % base;
 	return (dest);
 }
 
@@ -26,7 +26,7 @@ char *_itoa_(char *dest, int i)
  * Return: string
  */
 
-char *_itoa(char *dest, int i)
+char *_itoa(char *dest, int i, int base)
 {
 	char *s = dest;
 
@@ -34,6 +34,6 @@ char *_itoa(char *dest, int i)
 		*s++ = '-';
 	else
 		i = -i;
-	*_itoa_(s, i) = '\0';
+	*_itoa_(s, i, base) = '\0';
 	return (dest);
 }
