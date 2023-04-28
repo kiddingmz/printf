@@ -2,6 +2,7 @@
 #define _MAIN_H
 
 #include <stdarg.h>
+#include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 
@@ -17,4 +18,5 @@ char *_strcpy(char *, const char *);
 char *_charcpy(char *, const char);
 void _memset(char *, int, size_t);
 void _putchar(char );
+size_t _lenchar(const char *, size_t, int);
 #endif

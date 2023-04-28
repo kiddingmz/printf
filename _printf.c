@@ -41,6 +41,11 @@ int _printf(const char *format, ...)
 				_strcpy(buffer, str);
 				status = 0;
 			}
+			else if (format[i + 1] == '%')
+			{
+				_charcpy(buffer, format[i + 1]);
+				status = 0;
+			}
 			if (status == 0)
 				i++;
 		}
