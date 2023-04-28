@@ -49,8 +49,11 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'b')
 			{
 				str = _int(op, 2);
-				_strcpy(buffer, str);
-				status = 0;
+				if(str != NULL)
+				{
+					_strcpy(buffer, str);
+					status = 0;
+				}
 			}
 			if (status == 0)
 				i++;
