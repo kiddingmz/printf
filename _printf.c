@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == 'i' || format[i + 1] == 'd')
 			{
-				str =  _int(op);
+				str =  _int(op, 10);
 				_strcpy(buffer, str);
 				status = 0;
 			}
@@ -44,6 +44,12 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == '%')
 			{
 				_charcpy(buffer, format[i + 1]);
+				status = 0;
+			}
+			else if (format[i + 1] == 'b')
+			{
+				str = _int(op, 2);
+				_strcpy(buffer, str);
 				status = 0;
 			}
 			if (status == 0)
