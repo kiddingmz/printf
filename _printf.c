@@ -4,7 +4,7 @@
  * _printf - print
  *
  * @format: string
- * @...: more param
+ * @...: more params
  *
  * Return: length of print string
  */
