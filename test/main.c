@@ -9,7 +9,7 @@ int main(void)
 {
 	int i, j;
 	char c[] = "Isidro Bata";
-	char t[] = "%%  %%%%%%% %%%%%";
+	char t[] = "%";
 	i = _printf("\nOI mundo como esta\n%s\n\tEstado: %c\n",c, 'S');
 	j = printf("\nOI mundo como esta\n%s\n\tEstado: %c\n", c, 'S');
 

@@ -10,7 +10,7 @@
  * Return: unsigned int
  */
 
-size_t _lenchar(const char *dest, size_t t, in src)
+size_t _lenchar(const char *dest, size_t t, int src)
 {
 	size_t i;
 
