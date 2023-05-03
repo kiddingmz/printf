@@ -1,68 +1,45 @@
 #include "main.h"
 
 /**
- * _printf - print all
+ * _printf - print
  *
- * @format: first param
- * @...: more params
+ * @format: string
+ * @...: more param
  *
- * Return: lenght of string
+ * Return: length of print string
  */
 
 int _printf(const char *format, ...)
 {
-	unsigned int i, len_str, status = 1;
 	va_list op;
-	char *str = NULL, n, *buffer = malloc(sizeof(char) * 4096);
+	unsigned int i, j;
 
-	len_str = _strlen(format);
 	va_start(op, format);
-	_memset(buffer, '\0', 4096);
-	for (i = 0; i < len_str; i++)
+	for (i = 0, j = 0; format[i] != '\0'; i++)
 	{
-		status = 1;
-		if (*(format + i) == '%')
+		if (format[i] != '%')
 		{
-			if (format[i + 1] == 'i' || format[i + 1] == 'd')
-			{
-				str =  _int(op, 10);
-				_strcpy(buffer, str);
-				status = 0;
-			}
-			else if (format[i + 1] == 'c')
-			{
-				n = _char(op);
-				_charcpy(buffer, n);
-				status = 0;
-			}
-			else if (format[i + 1] == 's')
-			{
-				str = _string(op);
-				_strcpy(buffer, str);
-				status = 0;
-			}
-			else if (format[i + 1] == '%')
-			{
-				_charcpy(buffer, format[i + 1]);
-				status = 0;
-			}
-			else if (format[i + 1] == 'b')
-			{
-				str = _int(op, 2);
-				if(str != NULL)
-				{
-					_strcpy(buffer, str);
-					status = 0;
-				}
-			}
-			if (status == 0)
-				i++;
+			_putchar(format[i]);
+			j++;
 		}
-		else
-			_charcpy(buffer, format[i]);
+		else if (format[i + 1] == 'c')
+		{
+			_putchar(va_arg(op, int));
+			i++;
+			j++;
+		}
+		else if (format[i + 1] == 's')
+		{
+			j += _putstring(va_arg(op, char *));
+			i++;
+		}
+		else if (format[i + 1] == '%')
+		{
+			_putchar(format[i + 1]);
+			i++;
+			j++;
+		}
+
 	}
-	write(1, buffer, _strlen(buffer));
-	free(buffer);
-	va_end(op);
-	return (_strlen(buffer));
+	return (j);
 }

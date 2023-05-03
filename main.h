@@ -18,5 +18,6 @@ char *_strcpy(char *, const char *);
 char *_charcpy(char *, const char);
 void _memset(char *, int, size_t);
 void _putchar(char );
+unsigned int _putstring(const char *);
 size_t _lenchar(const char *, size_t, int);
 #endif
