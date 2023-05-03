@@ -15,8 +15,8 @@ int main(void)
 
 	printf("\n[%d]\n[%d]\n", i, j);
 
-	i = _printf("\n%s\n", t);
-	j = printf("\n%s\n", t);
+	i = _printf("\n%s\'' ' '\n", t);
+	j = printf("\n%s\'' ' '\n", t);
 
 	printf("\n[%d]\n[%d]\n", i, j);
 	return (0);

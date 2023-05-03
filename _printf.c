@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 	unsigned int i, j;
 
 	va_start(op, format);
-	if (format == NULL)
+	if (format == NULL || op == NULL)
 		return (-1);
 
 	for (i = 0, j = 0; format[i] != '\0'; i++)
