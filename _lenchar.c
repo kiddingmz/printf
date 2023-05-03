@@ -10,10 +10,10 @@
  * Return: unsigned int
  */
 
-size_t _lenchar(const char* dest, size_t t, int src)
+size_t _lenchar(const char *dest, size_t t, in src)
 {
 	size_t i;
-	
+
 	i = 0;
 	while (dest[t] != '\0')
 	{
@@ -21,7 +21,6 @@ size_t _lenchar(const char* dest, size_t t, int src)
 			i++;
 		t++;
 	}
-
 	return (i);
 }
-	
+

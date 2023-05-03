@@ -5,6 +5,7 @@
  *
  * @dest: string
  * @i: number
+ * @base: base
  *
  * Return: string
  */
@@ -22,6 +23,7 @@ char *_itoa_(char *dest, int i, int base)
  *
  * @dest: string
  * @i: number
+ * @base: base
  *
  * Return: string
  */
@@ -29,8 +31,9 @@ char *_itoa_(char *dest, int i, int base)
 char *_itoa(char *dest, int i, int base)
 {
 	char *s = dest;
+
 	if (base == 2 && i < 0)
-		return NULL;
+		return (NULL);
 	if (i < 0)
 		*s++ = '-';
 	else
