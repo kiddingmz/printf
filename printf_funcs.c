@@ -11,7 +11,7 @@
 
 void print_char(int c, unsigned int *iterator)
 {
-        *iterator += _putchar(c);
+	*iterator += _putchar(c);
 }
 
 /**
