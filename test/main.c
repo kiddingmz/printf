@@ -9,14 +9,13 @@ int main(void)
 {
 	int i, j;
 	char c[] = "Isidro Bata";
-	char t[] = "%";
 	i = _printf("\nOI mundo como esta\n%s\n\tEstado: %c\n",c, 'S');
 	j = printf("\nOI mundo como esta\n%s\n\tEstado: %c\n", c, 'S');
 
 	printf("\n[%d]\n[%d]\n", i, j);
 
-	i = _printf("\n%s\'' ' '\n", t);
-	j = printf("\n%s\'' ' '\n", t);
+	i = _printf("%K\n");
+	j = printf("%K\n");
 
 	printf("\n[%d]\n[%d]\n", i, j);
 	return (0);

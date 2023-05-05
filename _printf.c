@@ -15,34 +15,30 @@ int _printf(const char *format, ...)
 	unsigned int i, j;
 
 	va_start(op, format);
-	if (format == NULL || op == NULL)
+	if (format == NULL || op == NULL || (format[0] == '%' && 
+			format[1] == '\0'))
 		return (-1);
 
 	for (i = 0, j = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
-			_putchar(format[i]);
-			j++;
+			print_char(format[i], &j);
 		}
 		else if (format[i + 1] == 'c')
 		{
-			_putchar(va_arg(op, int));
-			i++;
-			j++;
+			print_char_iter(va_arg(op, int), &j, &i);
 		}
 		else if (format[i + 1] == 's')
 		{
-			j += _putstring(va_arg(op, char *));
-			i++;
+			print_string(va_arg(op, char *), &j, &i);
 		}
 		else if (format[i + 1] == '%')
 		{
-			_putchar(format[i + 1]);
-			i++;
-			j++;
+			print_char_iter(format[i + 1], &j, &i);
 		}
-
+		else if (format[i] == '%')
+			print_char(format[i], &j);
 	}
 	va_end(op);
 	return (j);

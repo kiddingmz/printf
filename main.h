@@ -8,16 +8,9 @@
 
 int _printf(const char *, ...);
 int _strlen(const char *);
-char _char(va_list);
-char *_int(va_list, int);
-float _float(va_list);
-char *_string(va_list);
-char *_itoa_(char *, int, int);
-char *_itoa(char *, int, int);
-char *_strcpy(char *, const char *);
-char *_charcpy(char *, const char);
-void _memset(char *, int, size_t);
-void _putchar(char);
+unsigned int _putchar(char);
 unsigned int _putstring(const char *);
-size_t _lenchar(const char *, size_t, int);
+void print_char(int, unsigned int *);
+void print_char_iter(int, unsigned int *, unsigned int *);
+void print_string(const char *, unsigned int *, unsigned int *);
 #endif
