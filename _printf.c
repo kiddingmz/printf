@@ -22,21 +22,15 @@ int _printf(const char *format, ...)
 	for (i = 0, j = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
-		{
 			print_char(format[i], &j);
-		}
 		else if (format[i + 1] == 'c')
-		{
 			print_char_iter(va_arg(op, int), &j, &i);
-		}
 		else if (format[i + 1] == 's')
-		{
 			print_string(va_arg(op, char *), &j, &i);
-		}
 		else if (format[i + 1] == '%')
-		{
 			print_char_iter(format[i + 1], &j, &i);
-		}
+		else if (format[i + 1] == 'd' || format[i + 1] == 'i')
+			print_int(va_arg(op, int), &j, &i, 10);
 		else if (format[i] == '%')
 			print_char(format[i], &j);
 	}

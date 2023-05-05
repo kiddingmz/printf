@@ -32,8 +32,6 @@ char *_itoa(char *dest, int i, int base)
 {
 	char *s = dest;
 
-	if (base == 2 && i < 0)
-		return (NULL);
 	if (i < 0)
 		*s++ = '-';
 	else

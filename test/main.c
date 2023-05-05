@@ -14,8 +14,8 @@ int main(void)
 
 	printf("\n[%d]\n[%d]\n", i, j);
 
-	i = _printf("%K\n");
-	j = printf("%K\n");
+	i = _printf("%d\t%i\n",-1234, 14002);
+	j = printf("%d\t%i\n", -1234, 14002);
 
 	printf("\n[%d]\n[%d]\n", i, j);
 	return (0);
