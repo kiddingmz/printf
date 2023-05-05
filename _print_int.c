@@ -12,9 +12,9 @@
 
 char *_itoa(char *s, int number, int base)
 {
-	if (number >= base)
+	if (number <= -base)
 		s = _itoa(s, number / base, base);
-	*s++ = number % base + '0';
+	*s++ = '0' - number % base;
 	return (s);
 }
 
@@ -31,14 +31,13 @@ char *_itoa(char *s, int number, int base)
 
 void print_int(int number, unsigned int *iterator, unsigned int *i, int base)
 {
-	char ss[512];
+	char ss[1024];
 	char *s = ss;
 
 	if (number < 0)
-	{
-		number = -number;
 		*iterator += _putchar('-');
-	}
+	else
+		number = -number;
 	*_itoa(s, number, base) = '\0';
 	*iterator += _putstring(s);
 	*i = *i + 1;

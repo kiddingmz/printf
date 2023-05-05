@@ -1,4 +1,5 @@
 #include "../main.h"
+#include <limits.h>
 
 /**
  * main - Entry point
@@ -14,8 +15,8 @@ int main(void)
 
 	printf("\n[%d]\n[%d]\n", i, j);
 
-	i = _printf("%d\t%i\n",-1234, 14002);
-	j = printf("%d\t%i\n", -1234, 14002);
+	i = _printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	j = printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
 
 	printf("\n[%d]\n[%d]\n", i, j);
 	return (0);
