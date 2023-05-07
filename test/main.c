@@ -15,8 +15,8 @@ int main(void)
 
 	printf("\n[%d]\n[%d]\n", i, j);
 
-	i = _printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
-	j = printf("%d + %d = %d\n", INT_MIN, INT_MAX, (INT_MIN + INT_MAX));
+	i = _printf("%b\n", -987610232399);
+	j = printf("%b\n", -987610232399);
 
 	printf("\n[%d]\n[%d]\n", i, j);
 	return (0);

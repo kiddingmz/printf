@@ -15,4 +15,6 @@ void print_char_iter(int, unsigned int *, unsigned int *);
 void print_string(const char *, unsigned int *, unsigned int *);
 char *_itoa(char *, int, int);
 void print_int(int , unsigned int *, unsigned int *, int);
+void print_int_b(int , unsigned int *, unsigned int *, int);
+
 #endif
