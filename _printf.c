@@ -33,6 +33,14 @@ int _printf(const char *format, ...)
 			print_int(va_arg(op, int), &j, &i, 10);
 		else if (format[i + 1] == 'b')
 			print_int_b(va_arg(op, int), &j, &i, 2);
+		else if (format[i + 1] == 'u')
+			print_int_u(va_arg(op, unsigned int), &j, &i, 10);
+		else if (format[i + 1] == 'o')
+			print_int_o(va_arg(op, unsigned int), &j, &i, 8);
+		else if (format[i + 1] == 'x')
+			print_int_h(va_arg(op, unsigned int), &j, &i, 16);
+		else if (format[i + 1] == 'X')
+			print_int_H(va_arg(op, unsigned int), &j, &i, 16);
 		else if (format[i] == '%')
 			print_char(format[i], &j);
 	}

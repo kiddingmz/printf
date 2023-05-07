@@ -15,8 +15,8 @@ int main(void)
 
 	printf("\n[%d]\n[%d]\n", i, j);
 
-	i = _printf("%b\n", -987610232399);
-	j = printf("%b\n", -987610232399);
+	i = _printf("%h\n", 100);
+	j = printf("%h\n", 100);
 
 	printf("\n[%d]\n[%d]\n", i, j);
 	return (0);

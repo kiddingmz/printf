@@ -93,3 +93,44 @@ void print_int_b(int number, unsigned int *iterator, unsigned int *i, int base)
 	}
 }
 
+/**
+ * print_int_u - print unsinged int
+ *
+ * @number: number to print
+ * @iterator: iterator
+ * @i: int
+ * @base: base
+ *
+ * Return: nothing
+ */
+
+void print_int_u(unsigned int number, unsigned int *iterator, unsigned int *i, unsigned int base)
+{
+	char ss[1024];
+	char *s = ss;
+	
+	*_itoa_u(s, number, base, 'u') = '\0';
+	*iterator += _putstring(s);
+	*i = *i + 1;
+}
+
+/**
+ * print_int_o - print octal
+ *
+ * @number: number to print
+ * @iterator: iterator
+ * @i: int
+ * @base: base
+ *
+ * Return: nothing
+ */
+
+void print_int_o(unsigned int number, unsigned int *iterator, unsigned int *i, unsigned int base)
+{
+	char ss[1024];
+	char *s = ss;
+
+	*_itoa_u(s, number, base, 'o') = '\0';
+	*iterator += _putstring(s);
+	*i = *i + 1;
+}
